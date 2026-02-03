@@ -1,5 +1,3 @@
-import type { ROUTE_PATH_NAMES } from './routes'
-
 type Params = Record<string, string>
 
 export type RouteContext = Partial<{
@@ -10,13 +8,18 @@ export type RouteContext = Partial<{
 	event: NavigateEvent
 }>
 
+export type PageInstance = {
+	mount(): void | Promise<void>
+	unmount(): void | Promise<void>
+}
+
 export type Route = {
 	path: string
 	name?: string
 
 	// Глобальные/маршрутные хуки
 	beforeEnter?: (ctx?: RouteContext) => boolean | Promise<boolean>
-	render: (ctx?: RouteContext & { data?: unknown }) => void | Promise<void>
+	render: (ctx?: RouteContext & { data?: unknown }) => PageInstance
 	beforeLeave?: (ctx?: RouteContext) => boolean | Promise<boolean>
 }
 

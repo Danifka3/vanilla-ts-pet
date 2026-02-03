@@ -2,12 +2,10 @@ import type { Route } from './types'
 import { setupCounter } from '../../counter.ts'
 
 export const ROUTE_PATHS: Record<string, string> = {
-	HOME_URL: '/',
+	HOME_URL: '/books/:id',
 	CONTENT: '/content',
 	NO_SUCH_PAGE: '/404',
 } as const
-
-
 
 export const routes: Route[] = [
 	{
