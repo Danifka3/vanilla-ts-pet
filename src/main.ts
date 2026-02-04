@@ -3,5 +3,3 @@ import "./app/assets/styles/reset.scss"
 import { initRouter } from './app/router/router'
 
 initRouter()
-
-
