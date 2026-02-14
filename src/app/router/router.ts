@@ -32,9 +32,14 @@ function shouldNotIntercept(navigationEvent: NavigateEvent) {
 export function initRouter() {
 	window.navigation.addEventListener('navigate', (navigateEvent) => {
 		if (shouldNotIntercept(navigateEvent)) return
+		console.log(navigateEvent.destination.url)
+
+
+		if (navigateEvent.destination.url === 'http://localhost:5173/arena.html') return
 
 		const url = new URL(navigateEvent.destination.url)
 		const matchedRoute = matchRoute(url)
+
 
 		navigateEvent.intercept({
 			async handler() {

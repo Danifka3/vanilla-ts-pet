@@ -1,0 +1,31 @@
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+    <title>Пользователи</title>
+</head>
+
+<body>
+	<div>Пользователи:</div>
+	<ul>
+		<li>Джон</li>
+		<li>Пит</li>
+	</ul>
+
+	<script>
+		console.log(document.body.firstElementChild)
+
+		for (const child of document.body.children) {
+			if (child === HTMLUListElement) {
+				console.log(child)
+			}
+
+			for (const childeNode of child.children) {
+				console.log(childeNode)
+				if (childeNode.textContent === 'Пит') console.log(childeNode)
+			}
+		}
+	</script>
+</body>
+
+</html>
